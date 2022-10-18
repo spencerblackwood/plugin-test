@@ -91,11 +91,8 @@ foreach( src_file IN ITEMS ${SRC_FILES})
 	source_group("${group_name}" FILES "${src_file}")
 endforeach()
 
-#additional libraries, if needed
-#find_package(LIBNAME)
-#or
-#find_library(LIBNAME_LIBRARIES NAMES libname)
-#find_path(LIBNAME_INCLUDE_DIRS includefile.h)
-#
-#target_link_libraries(${PLUGIN_NAME} ${LIBNAME_LIBRARIES})
-#target_include_directories(${PLUGIN_NAME} PRIVATE ${LIBNAME_INCLUDE_DIRS})
+
+
+set(PYBIND11_PYTHON_VERSION 3.10.8 CACHE STRING "")
+find_package(pybind11 CONFIG REQUIRED)
+target_link_libraries(${PLUGIN_NAME} PRIVATE pybind11::embed pybind11::module pybind11::pybind11)
