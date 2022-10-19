@@ -91,8 +91,6 @@ foreach( src_file IN ITEMS ${SRC_FILES})
 	source_group("${group_name}" FILES "${src_file}")
 endforeach()
 
-
-
-set(PYBIND11_PYTHON_VERSION 3.10.8 CACHE STRING "")
-find_package(pybind11 CONFIG REQUIRED)
+set(pybind11_DIR Users/blackwood.s/Documents/GitHub/OEPlugins/plugin-test/libs/pybind11/tools)
+find_package(pybind11 REQUIRED)
 target_link_libraries(${PLUGIN_NAME} PRIVATE pybind11::embed pybind11::module pybind11::pybind11)
